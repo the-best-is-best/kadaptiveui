@@ -7,6 +7,7 @@ import androidx.compose.material3.SheetValue
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.saveable.Saver
 import androidx.compose.ui.unit.Density
+import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.CancellationException
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -36,10 +37,13 @@ actual class AdaptiveSheetState actual constructor(
 
     val materialSheetState = SheetState(
         skipPartiallyExpanded = _skipPartiallyExpanded,
-        density = density,
+        skipHiddenState = skipHiddenState,
         initialValue = initialValue,
-        confirmValueChange = { confirmValueChange(it) }
+        confirmValueChange = { confirmValueChange(it) },
+        positionalThreshold = { with(density) { 56.dp.toPx() } }, // default threshold for movement
+        velocityThreshold = { with(density) { 125.dp.toPx() } }    // default fling velocity threshold
     )
+
     actual val currentValue: SheetValue get() = materialSheetState.currentValue
     actual val isVisible get() = materialSheetState.isVisible
 

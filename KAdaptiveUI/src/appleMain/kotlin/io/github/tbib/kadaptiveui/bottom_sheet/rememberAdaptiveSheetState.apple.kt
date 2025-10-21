@@ -16,7 +16,7 @@ import kotlin.concurrent.Volatile
 @Stable
 actual class AdaptiveSheetState @OptIn(ExperimentalMaterial3Api::class)
 actual constructor(
-    internal val skipPartiallyExpanded: Boolean?,
+    private val skipPartiallyExpanded: Boolean?,
     density: Density,
     initialValue: SheetValue,
     internal val confirmValueChange: (SheetValue) -> Boolean,

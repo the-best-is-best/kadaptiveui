@@ -7,7 +7,7 @@ plugins {
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.composeMultiplatform)
 
-    id("org.ajoberstar.git-publish") version "5.1.2"
+//    id("org.ajoberstar.git-publish") version "5.1.2"
     alias(libs.plugins.maven.publish)
     id("signing")
 
@@ -32,15 +32,15 @@ tasks.withType<PublishToMavenRepository> {
 extra["packageNameSpace"] = "io.github.tbib.kadaptiveui"
 extra["groupId"] = "io.github.the-best-is-best"
 extra["artifactId"] = "kadaptiveui"
-extra["version"] = "1.1.1"
+extra["version"] = "1.2.0"
 extra["packageName"] = "KAdaptiveUI"
-extra["packageUrl"] = "https://github.com/the-best-is-best/ComposeUi"
+extra["packageUrl"] = "https://github.com/the-best-is-best/kadaptiveui"
 extra["packageDescription"] =
     "KAdaptiveUI is a Kotlin Multiplatform library that provides a set of adaptive UI components for Android and iOS using Jetpack Compose and UIKit.  \n" +
             "It helps developers write once and run adaptive UI for both platforms with platform-specific look and feel."
 extra["system"] = "GITHUB"
-extra["issueUrl"] = "https://github.com/the-best-is-best/ComposeUi/issues"
-extra["connectionGit"] = "https://github.com/the-best-is-best/ComposeUi.git"
+extra["issueUrl"] = "https://github.com/the-best-is-best/kadaptiveui/issues"
+extra["connectionGit"] = "https://github.com/the-best-is-best/kadaptiveui.git"
 
 extra["developerName"] = "Michelle Raouf"
 extra["developerNameId"] = "MichelleRaouf"
@@ -149,11 +149,11 @@ kotlin {
             }
         }
 
-        val commonTest by getting {
-            dependencies {
-                implementation(libs.kotlin.test)
-            }
-        }
+//        val commonTest by getting {
+//            dependencies {
+//                implementation(libs.kotlin.test)
+//            }
+//        }
 
         val materialMain by creating {
             dependsOn(commonMain)
@@ -201,25 +201,12 @@ kotlin {
             dependsOn(appleMain)
         }
 
-        getByName("androidDeviceTest") {
-            dependencies {
-                implementation(libs.androidx.runner)
-                implementation(libs.androidx.core)
-                implementation(libs.androidx.testExt.junit)
-            }
-        }
-    }
-}
-
-
-/**
- * Git Publish configuration (push to GitHub Wiki repo)
- */
-gitPublish {
-    // ⚠️ غير "USER/REPO" بالـ GitHub repo بتاعك
-    repoUri.set("https://github.com/the-best-is-best/ComposeUi.wiki.git")
-    branch.set("main") // GitHub Wiki uses master
-    contents {
-        from("build/wiki")
+//        getByName("androidDeviceTest") {
+//            dependencies {
+//                implementation(libs.androidx.runner)
+//                implementation(libs.androidx.core)
+//                implementation(libs.androidx.testExt.junit)
+//            }
+//        }
     }
 }

@@ -23,7 +23,7 @@ KAdmob is available on `mavenCentral()`.
 Add dependency to your build.gradle.kts:
 
 ```kotlin
-implementation("io.github.the-best-is-best:kadaptiveui:1.0.0")
+implementation("io.github.the-best-is-best:kadaptiveui:1.2.0")
 ```
 
 ## Components
