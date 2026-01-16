@@ -32,7 +32,7 @@ tasks.withType<PublishToMavenRepository> {
 extra["packageNameSpace"] = "io.github.tbib.kadaptiveui"
 extra["groupId"] = "io.github.the-best-is-best"
 extra["artifactId"] = "kadaptiveui"
-extra["version"] = "1.2.0"
+extra["version"] = "1.2.1"
 extra["packageName"] = "KAdaptiveUI"
 extra["packageUrl"] = "https://github.com/the-best-is-best/kadaptiveui"
 extra["packageDescription"] =
@@ -141,9 +141,9 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(libs.kotlin.stdlib)
-                implementation(compose.runtime)
-                implementation(compose.foundation)
-                implementation(compose.material3)
+                implementation(libs.runtime)
+                implementation(libs.foundation)
+                implementation(libs.material3)
                 implementation(libs.kotlinx.datetime)
 
             }
@@ -158,8 +158,8 @@ kotlin {
         val materialMain by creating {
             dependsOn(commonMain)
             dependencies {
-                implementation(compose.material3AdaptiveNavigationSuite) // Shared Compose Material layer
-                implementation(compose.materialIconsExtended)
+                implementation(libs.material3.adaptive.navigation.suite) // Shared Compose Material layer
+                implementation(libs.material.icons.extended)
             }
         }
 
