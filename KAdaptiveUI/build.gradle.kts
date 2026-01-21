@@ -32,7 +32,7 @@ tasks.withType<PublishToMavenRepository> {
 extra["packageNameSpace"] = "io.github.tbib.kadaptiveui"
 extra["groupId"] = "io.github.the-best-is-best"
 extra["artifactId"] = "kadaptiveui"
-extra["version"] = "1.2.1"
+extra["version"] = "1.2.2"
 extra["packageName"] = "KAdaptiveUI"
 extra["packageUrl"] = "https://github.com/the-best-is-best/kadaptiveui"
 extra["packageDescription"] =
